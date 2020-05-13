@@ -28,7 +28,7 @@ public class CultivatrApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/hello").allowedOrigins("https://cultivatr-ui.herokuapp.com/");
+				registry.addMapping("/hello").allowedOrigins("https://cultivatr-ui.herokuapp.com");
 
 			}
 		};

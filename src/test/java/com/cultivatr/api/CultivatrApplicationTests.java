@@ -8,6 +8,7 @@ class CultivatrApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert(1==2);
 	}
 
 }

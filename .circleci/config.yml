@@ -68,8 +68,15 @@ jobs: # a collection of steps
           webhook: '${SLACK_WEBHOOK}'
 orbs:
   slack: circleci/slack@3.4.2
+  heroku: circleci/heroku@1.0.1
 workflows:
   version: 2.1
   workflow:
     jobs:
-    - build 
+    - build
+    - heroku/deploy-via-git:
+          requires:
+            - build # only run deploy-via-git job if the build job has completed
+          filters:
+            branches:
+              only: master # only run deploy-via-git job on master branch

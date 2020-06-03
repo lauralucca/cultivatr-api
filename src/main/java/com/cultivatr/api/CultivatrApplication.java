@@ -1,5 +1,6 @@
 package com.cultivatr.api;
 
+import com.cultivatr.api.utils.Constants;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,21 +23,16 @@ public class CultivatrApplication {
 		return String.format("Hello %s!", name);
 	}
 
-
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/hello").allowedOrigins("https://cultivatr-ui.herokuapp.com");
-
+				registry.addMapping("/hello").allowedOrigins(Constants.frontURL);
+				registry.addMapping("/user").allowedOrigins(Constants.frontURL);
 			}
 		};
-
-
-											
 	}
-
 }
 
 

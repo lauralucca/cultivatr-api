@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserSignUpService {
-    public void createUser(User user) {
+    public User createUser(User user) {
+        return user;
     }
 }

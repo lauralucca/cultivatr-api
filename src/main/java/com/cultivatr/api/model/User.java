@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class User {
 
-    public String name;
-    public String email;
+    private String name;
+    private String email;
 
     public User(String name, String email) {
         this.name = name;
@@ -23,6 +23,5 @@ public class User {
         User user = (User) object;
         return  Objects.equals(this.name, user.name) &&
                 Objects.equals(this.email, user.email);
-
     }
 }

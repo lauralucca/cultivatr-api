@@ -26,7 +26,8 @@ public class UserSignUpTest {
     void createsUser() throws Exception {
         String name = "Agatha";
         String email = "agatha@cultivatr.teste";
-        String userAsJson = "{ \"name\": \"" + name + "\", " + "\"email\": \"" + email + "\"" + "}";
+        String userAsJson = "{ \"name\": \"" + name + "\", " +
+                            "\"email\": \"" + email + "\"" + "}";
 
         mockMvc.perform(
             post("/user")

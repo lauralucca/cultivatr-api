@@ -28,8 +28,10 @@ public class CultivatrApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/hello").allowedOrigins(Constants.frontURL);
-				registry.addMapping("/user").allowedOrigins(Constants.frontURL);
+				registry.addMapping("/hello").allowedOrigins(Constants.frontDevURL);
+				registry.addMapping("/hello").allowedOrigins(Constants.frontProdURL);
+				registry.addMapping("/user").allowedOrigins(Constants.frontDevURL);;
+				registry.addMapping("/user").allowedOrigins(Constants.frontProdURL);
 			}
 		};
 	}

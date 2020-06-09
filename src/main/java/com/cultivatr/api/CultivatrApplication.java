@@ -1,6 +1,5 @@
 package com.cultivatr.api;
 
-import com.cultivatr.api.utils.Constants;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,18 +24,18 @@ public class CultivatrApplication {
 
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
+		String frontProdURL = "https://mycultivatr.herokuapp.com";
+		String frontDevURL = "http://localhost:3000";
+
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/hello").allowedOrigins(Constants.frontDevURL);
-				registry.addMapping("/hello").allowedOrigins(Constants.frontProdURL);
-				registry.addMapping("/user").allowedOrigins(Constants.frontDevURL);;
-				registry.addMapping("/user").allowedOrigins(Constants.frontProdURL);
+				registry.addMapping("/hello").allowedOrigins(frontDevURL, frontProdURL);
+				registry.addMapping("/user").allowedOrigins(frontDevURL, frontProdURL);
 			}
 		};
 	}
 }
-
 
 
 

@@ -26,12 +26,13 @@ public class CultivatrApplication {
 	public WebMvcConfigurer corsConfigurer() {
 		String frontProdURL = "https://mycultivatr.herokuapp.com";
 		String frontDevURL = "http://localhost:3000";
+		String frontDevMappedURL = "http://mycultivatr.com:3000";
 
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/hello").allowedOrigins(frontDevURL, frontProdURL);
-				registry.addMapping("/user").allowedOrigins(frontDevURL, frontProdURL);
+				registry.addMapping("/hello").allowedOrigins(frontDevURL, frontDevMappedURL, frontProdURL);
+				registry.addMapping("/user").allowedOrigins(frontDevURL, frontDevMappedURL, frontProdURL);
 			}
 		};
 	}

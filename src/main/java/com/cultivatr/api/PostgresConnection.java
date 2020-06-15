@@ -9,17 +9,16 @@ public class PostgresConnection {
     Statement statement = null;
 
     public PostgresConnection() {
-        String host="localhost";
+
+        String host="ec2-35-174-127-63.compute-1.amazonaws.com";
         String port="5432";
-        String db_name="cultivatr";
-        String username="postgres";
-        String password="12345";
+        String db_name="db7j1of8o5pl51";
+        String username="hbxtpazwblqqcv";
+        String password="31ec45037b7380c7595d8a681b35c8efe05acd2d34fd2e099a1be68e1bdd2a7c";
+        String driver="jdbc:postgresql";
 
         try {
-            Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:postgresql://"+host+":"+port+"/"+db_name+"", ""+username+"", ""+password+""
-            );
+            connection = DriverManager.getConnection(driver + "://"+host+":"+port+"/"+db_name+"", ""+username+"", ""+password+"");
             if (connection != null) {
                 System.out.println("Connection OK");
             } else {

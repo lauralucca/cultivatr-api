@@ -1,10 +1,10 @@
 package com.cultivatr.api;
 
+import org.springframework.stereotype.Component;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class PostgresConnection {
+@Component
+public class PostgresConnection implements IDataBase {
     Connection connection = null;
     Statement statement = null;
 
@@ -36,5 +36,10 @@ public class PostgresConnection {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public ResultSet select(String sql) throws SQLException {
+        statement = connection.createStatement();
+        return statement.executeQuery(sql);
     }
 }

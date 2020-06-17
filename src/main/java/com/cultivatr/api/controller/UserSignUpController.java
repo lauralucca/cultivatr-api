@@ -14,14 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserSignUpController {
 
-
     private UserSignUpService userSignUpService;
-
-    @Autowired
-    public UserSignUpController()
-    {
-        this.userSignUpService = new UserSignUpService(DbConnectionFactory.createPostgresConnection());
-    }
 
     public UserSignUpController(UserSignUpService userSignUpService)
     {

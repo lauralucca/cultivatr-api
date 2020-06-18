@@ -15,7 +15,7 @@ public class UserSignUpControllerTest {
     UserSignUpService userSignUpService;
 
     @Test
-    void createsUser() throws Exception {
+    void shouldSaveUser() throws Exception {
         String name = "Agatha";
         String email = "agatha@cultivatr.teste";
         int httpStatusCreated = 201;

@@ -1,5 +1,6 @@
 package com.cultivatr.api;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import java.sql.*;
 
@@ -8,14 +9,15 @@ public class PostgresConnection implements IDataBase {
     Connection connection = null;
     Statement statement = null;
 
-    public PostgresConnection() {
+    public PostgresConnection(
+        @Value("${db.host}") String host,
+        @Value("${db.port}") String port,
+        @Value("${db.name}") String db_name,
+        @Value("${db.username}") String username,
+        @Value("${db.password}") String password,
+        @Value("${db.driver}") String driver
 
-        String host="ec2-35-174-127-63.compute-1.amazonaws.com";
-        String port="5432";
-        String db_name="db7j1of8o5pl51";
-        String username="hbxtpazwblqqcv";
-        String password="31ec45037b7380c7595d8a681b35c8efe05acd2d34fd2e099a1be68e1bdd2a7c";
-        String driver="jdbc:postgresql";
+    ) {
 
         try {
             connection = DriverManager.getConnection(driver + "://"+host+":"+port+"/"+db_name+"", ""+username+"", ""+password+"");

@@ -1,10 +1,7 @@
 package com.cultivatr.api.controller;
 
-import com.cultivatr.api.DbConnectionFactory;
-import com.cultivatr.api.IDataBase;
 import com.cultivatr.api.model.User;
 import com.cultivatr.api.service.UserSignUpService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
